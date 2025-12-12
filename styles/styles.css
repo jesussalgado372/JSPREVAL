@@ -1,0 +1,10 @@
+body {
+  background-image: url(/assets/joshua-rawson-harris-YNaSz-E7Qss-unsplash.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+h1,
+h5,
+label {
+  color: azure;
+}
