@@ -21,7 +21,4 @@ const removeFromStorage = (Item) => {
   localStorage.setItem("Items", JSON.stringify(listArr));
 };
 
-const clearStorage = () => {
-  localStorage.removeItem(Item);
-};
-export { saveToStorage, getLocalStorage, removeFromStorage, clearStorage };
+export { saveToStorage, getLocalStorage, removeFromStorage};

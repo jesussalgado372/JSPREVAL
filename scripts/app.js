@@ -2,12 +2,11 @@ import {
   saveToStorage,
   getLocalStorage,
   removeFromStorage,
-  clearStorage,
 } from "./localStorage.js";
 
 const addToStorageBtn = document.getElementById("addToLocalStorageBtn");
 const getFromStorageBtn = document.getElementById("getFromLocalStorageBtn");
-const clearListBtn = document.getElementById("clearListBtn");
+const randomDisplayBtn = document.getElementById("randomDisplayBtn");
 const userInput = document.getElementById("userInput");
 const storedValue = document.getElementById("storedValue");
 
@@ -44,7 +43,20 @@ const displayItem = () => {
   });
 };
 
-clearListBtn.addEventListener("click", () => {
-    localStorage.setItem("Items", JSON.stringify([]));
-    storedValue.innerHTML = "Nothing yet!";
+const randomItem = () => {
+  let groceryItems = getLocalStorage();
+
+  if (groceryItems.length === 0) {
+    alert("No Items in storage!");
+    return;
+  }
+
+  let randomIndex = Math.floor(Math.random() * groceryItems.length);
+  let chosenItem = groceryItems[randomIndex];
+
+  storedValue.innerHTML = `<p class="m-2">Random Item: <strong>${chosenItem}</strong></p>`;
+};
+
+randomDisplayBtn.addEventListener("click", () => {
+  randomItem();
 });
